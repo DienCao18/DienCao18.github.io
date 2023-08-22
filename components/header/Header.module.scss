@@ -1,0 +1,179 @@
+@import "@/styles/variables";
+@import "@/styles/breakpoint";
+@import "@/styles/font";
+
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+
+    .header_inner {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0 15%;
+
+        @include respond-desktop-small() {
+            margin: 0 5%;
+
+        }
+
+        .header_logo {
+            position: absolute;
+            left: 17%;
+            padding: toRem(12) 0;
+
+            @include respond-desktop-small() {
+                left: 5%;
+            }
+        }
+
+        .header_submenu {
+            display: flex;
+            margin: toRem(30) toRem(0) toRem(8) 0;
+
+            @include respond-desktop-small() {
+                margin: toRem(30) 5% toRem(8) 18%;
+
+            }
+
+            @include respond-tabletlandscape() {
+                display: none;
+            }
+
+            ul {
+                display: flex;
+                font-size: toRem(16);
+                gap: toRem(24);
+                flex-wrap: wrap;
+
+                li {
+                    justify-content: space-between;
+
+                    a {
+                        &:hover {
+                            color: #313131;
+                            border-bottom: 1px solid #F9841A;
+                        }
+                    }
+                }
+            }
+        }
+
+        .header_login {
+            margin-left: toRem(71.5);
+
+            @include respond-desktop-small() {
+                margin-left: 5%;
+                white-space: nowrap;
+            }
+
+            @include respond-tabletlandscape() {
+                display: none;
+            }
+
+            a {
+                padding: toRem(10) toRem(28);
+                color: #ffffff;
+                font-size: toRem(16);
+
+                &:hover {
+                    opacity: 0.8;
+                }
+
+                &:first-of-type {
+                    background-image: linear-gradient(to right, #F95B34, #F9B840);
+                    background-color: #F95B34;
+                    border-radius: 0 toRem(0) toRem(0) toRem(16);
+                }
+
+                &:last-of-type {
+                    background-color: #8701CA;
+                    border-radius: 0 toRem(0) toRem(16) 0;
+                }
+            }
+        }
+
+        .header_dropdown {
+
+
+            display: none;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            width: 3rem;
+            height: 3rem;
+            padding-bottom: 25px;
+            .header_dropdown_inner_hover {
+                display: none;
+            }
+            @include respond-tabletlandscape() {
+                display: flex;
+
+                &:hover {
+                    .header_dropdown_inner_hover {
+                        display: block;
+                        position: absolute;
+                        background-color: #f9f9f9;
+                        min-width: 160px;
+                        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                        z-index: 1;
+                        right: -100%;
+                        top: 0%;
+                        a {
+                            float: none;
+                            color: black;
+                            padding: 12px 16px;
+                            text-decoration: none;
+                            display: block;
+                            text-align: left;
+    
+                            &:hover {
+                                background-color: #8701CA;
+                                color: #F9B840;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &::before {
+                content: "";
+                width: 50%;
+                height: 0.1rem;
+                background: #4e3b23;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                transition: all 0.2s;
+                top: 5px;
+            }
+
+            .header_dropdown_inner {
+                width: 50%;
+                height: 0.1rem;
+                background: #4e3b23;
+                transition: all 0.2s;
+
+                &::after {
+                    content: "";
+                    width: 50%;
+                    height: 0.1rem;
+                    background: #4e3b23;
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    transition: all 0.2s;
+                    bottom: 33px;
+
+                }
+
+                
+
+            }
+
+            
+        }
+    }
+}
